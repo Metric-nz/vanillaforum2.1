@@ -1,0 +1,7 @@
+---
+
+# Vanilla variables
+
+mysql:
+    root_password: root
+    

@@ -1,0 +1,8 @@
+---
+
+# Vanilla variables
+
+vanillasql:
+    user: brandx
+    password: password
+    database: vanillaforum

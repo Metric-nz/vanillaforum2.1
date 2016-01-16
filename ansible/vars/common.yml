@@ -1,0 +1,7 @@
+---
+    php_ppa: php5-5.6
+    doc_root: /vagrant/files/www/html
+    sys_packages: []
+    dist: precise
+    php_packages: ["php5-mysql"]
+    pecl_packages: []

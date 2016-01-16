@@ -1,0 +1,43 @@
+---
+
+
+- name: mysql | Create databases
+  mysql_db: name={{ vanillasql.database }} state=present login_user=root login_password={{ mysql.root_password }}
+
+- name: mysql | Create users
+  mysql_user: name={{ vanillasql.user }} password={{ vanillasql.password }} priv={{ vanillasql.database }}.*:ALL state=present login_user=root login_password={{ mysql.root_password }}
+
+- name: Install Git and Unzip
+  sudo: yes
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - git
+    - unzip
+
+- name: vanilla | Get vanilla source
+  git: repo=https://github.com/vanilla/vanilla.git
+       dest=/vagrant/files/www/html
+       version=2.1
+       # accept_hostkey=yes
+       
+- name: vanilla | Get addons | Create directory for downloaded add-on archive
+  file: path=/vagrant/files/www/html/source/ state=directory
+  
+- name: vanilla | Get addons | Download Yaga
+  get_url: url=http://vanillaforums.org/get/yaga-application-1.0.3.zip dest=/vagrant/files/www/html/source/
+
+- name: vanilla | Get addons | Unzip Yaga
+  unarchive: src=/vagrant/files/www/html/source/yaga-application-1-0-3.zip dest=/vagrant/files/www/html/applications/ copy=no
+
+- name: vanilla | Get addons | Download Data Generator
+  get_url: url=http://vanillaforums.org/get/datagenerator-plugin-0.2.zip dest=/vagrant/files/www/html/source/
+
+- name: vanilla | Get addons | Unzip Data Generator
+  unarchive: src=/vagrant/files/www/html/source/datagenerator-plugin-0-2.zip dest=/vagrant/files/www/html/plugins/ copy=no
+
+- name: vanilla | Get theme | Download Bootstrap
+  get_url: url=http://vanillaforums.org/get/bootstrap-theme-2.5.0.zip dest=/vagrant/files/www/html/source/
+
+- name: vanilla | Get theme | Unzip Bootstrap
+  unarchive: src=/vagrant/files/www/html/source/bootstrap-theme-2-5-0.zip dest=/vagrant/files/www/html/themes/ copy=no
+ 
