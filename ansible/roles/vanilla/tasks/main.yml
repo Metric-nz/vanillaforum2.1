@@ -21,11 +21,11 @@
   become: yes
   become_user: www-data       
     
-- name: vanilla | Install dependencies
-  become: yes
-  become_user: www-data       
-  composer: command=install
-            working_dir=/vagrant/files/www/html
+# - name: vanilla | Install dependencies
+  # become: yes
+  # become_user: www-data       
+  # composer: command=install
+            # working_dir=/vagrant/files/www/html
 
 - name: vanilla | Get addons | Create directory for downloaded archives
   file: path=/vagrant/files/www/source/ state=directory owner=www-data group=www-data mode=0700

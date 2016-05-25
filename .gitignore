@@ -3,7 +3,7 @@
 .vagrant/hostmanager/*
 
 # Vanilla files
-files/www/*
+files/www/source/
 
 # Ansible system files
 playbook.retry
