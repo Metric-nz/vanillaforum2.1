@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Update Repositories
-sudo apt-get update
+#sudo apt-get update
 
 # Determine Ubuntu Version
 . /etc/lsb-release
@@ -28,5 +28,5 @@ sudo apt-get install -y ansible
 cp /vagrant/ansible/inventories/dev /etc/ansible/hosts -f
 chmod 666 /etc/ansible/hosts
 cat /vagrant/ansible/files/authorized_keys >> /home/vagrant/.ssh/authorized_keys
-sudo ansible-playbook /vagrant/ansible/playbook.yml -e hostname=$1 --connection=local
-# sudo ansible-playbook /vagrant/ansible/playbook.yml -e hostname=default --connection=local
+sudo ansible-playbook /vagrant/ansible/playbook.yml --connection=local
+# become ansible-playbook /vagrant/ansible/playbook.yml -e hostname=$1 --connection=local

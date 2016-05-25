@@ -5,3 +5,4 @@
     dist: precise
     php_packages: ["php5-mysql"]
     pecl_packages: []
+    hostname: vanillaforum

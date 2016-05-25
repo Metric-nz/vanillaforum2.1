@@ -1,10 +1,12 @@
 # Vagrant Virtualbox files
 .vagrant/machines/default/virtualbox/*
+.vagrant/hostmanager/*
 
 # Vanilla files
-files/www
+files/www/*
 
-
+# Ansible system files
+playbook.retry
 
 # Windows image file caches
 Thumbs.db

@@ -17,5 +17,6 @@
     - php5
     - mysql
     - phpcommon
+    - xdebug
     - vanilla
     - app
