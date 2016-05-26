@@ -48,6 +48,14 @@
   get_url: url=http://vanillaforums.org/get/bootstrap-theme-2.5.0.zip dest=/vagrant/files/www/source/
 
 - name: vanilla | Get theme | Unzip Bootstrap
+  become: yes
+  become_user: www-data       
   unarchive: src=/vagrant/files/www/source/bootstrap-theme-2-5-0.zip dest=/vagrant/files/www/html/themes/ copy=no
  
+ - name: vanilla : Get addons | Download Sphinxsearch
+   get_url: url=https://vanillaforums.org/get/sphinxsearch-plugin-20140114.zip dest=/vagrant/files/www/source/
  
+ - name: vanilla | Get addons | Unzip Sphinxsearch
+  become: yes
+  become_user: www-data       
+  unarchive: src=/vagrant/files/www/source/sphinxsearch-plugin-20140114.zip dest=/vagrant/files/www/html/applications/ copy=no
