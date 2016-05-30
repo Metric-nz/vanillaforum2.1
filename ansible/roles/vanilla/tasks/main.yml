@@ -59,3 +59,11 @@
   become: yes
   become_user: www-data       
   unarchive: src=/vagrant/files/www/source/sphinxsearch-plugin-20140114.zip dest=/vagrant/files/www/html/applications/ copy=no
+
+   - name: vanilla : Get addons | Download Version Check
+   get_url: url=https://vanillaforums.org/get/versioncheck-plugin-1.7.zip dest=/vagrant/files/www/source/
+ 
+ - name: vanilla | Get addons | Unzip Version Check
+  become: yes
+  become_user: www-data       
+  unarchive: src=/vagrant/files/www/source/versioncheck-plugin-1-7.zip dest=/vagrant/files/www/html/applications/ copy=no
